@@ -21,13 +21,8 @@ const lastUpdate = document.getElementById("last-update");
 
 getMetalPrice().then((price) => {
     MADprice.textContent = price[0].toFixed(2) + "   MAD/g"
-})
-
-getMetalPrice().then((price) => {
     Madsilver.textContent = price[1].toFixed(2) + "   MAD/g"
-})
-
-getMetalPrice().then((price) => {
+    
     const date = new Date(price[2]);
 
     lastUpdate.textContent = date.toLocaleString("fr-FR", {
@@ -38,5 +33,8 @@ getMetalPrice().then((price) => {
         minute: "2-digit",
         timeZone: "Africa/Casablanca"
     });
-});
+
+})
+
+
 
