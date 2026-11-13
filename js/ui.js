@@ -4,6 +4,11 @@ const lastUpdate = document.getElementById("last-update");
 const apiStatus = document.getElementById("api-status")
 const apiMessage = document.getElementById("api-message");
 
+export function rederError(){
+    apiMessage.textContent = "impossible de charger les prix. ⚠️";
+    apiStatus.textContent = "Error.";
+}
+
 export function renderSeccus(){
     apiMessage.textContent = "Prix chargés avec succès. ✅";
     apiStatus.textContent = "Connecté.";
