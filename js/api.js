@@ -23,9 +23,3 @@ export async function getMetalPrice(){
         return null
     }
 }
-
-
-
-
-
-
