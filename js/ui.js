@@ -6,6 +6,31 @@ const apiMessage = document.getElementById("api-message");
 const goldVariation = document.getElementById("variation");
 const Svariation = document.getElementById("S_variation")
 
+export function renderCards() {
+    const container = document.getElementById("price-cards");
+
+    const card = document.createElement("div");
+    card.className = "bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition";
+    container.appendChild(card);
+
+    const Gold = document.createElement("h3");
+    Gold.className = "text-lg font-semibold mb-3";
+    Gold.textContent = "Or";
+    card.appendChild(Gold);
+
+    const goldPrice = document.createElement("p");
+    goldPrice.className = "text-3xl font-bold text-amber-600";
+    goldPrice.id = "orInMad";
+    goldPrice.textContent = "-- MAD/g";
+    card.appendChild(goldPrice);
+
+    const goldVariation = document.createElement("p");
+    goldVariation.className = "text-sm text-gray-500 mt-2";
+    goldVariation.id = "variation";
+    goldVariation.textContent = "Variation : --";
+    card.appendChild(goldVariation);
+}
+
 export function renderSvariation(defferance, percentage){
     let color;
     let  arrow;
