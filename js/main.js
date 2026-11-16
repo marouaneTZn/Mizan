@@ -23,5 +23,10 @@ getMetalPrice().then((price) => {
         rederError()
         return;
     } 
+    renderPrice(price);
+    lastTimeUpdate(price[2]);
+    renderVariation(price[3], price[4]);
+    renderSvariation(price[5], price[6]);
+    renderSeccus();
     
 })
