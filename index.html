@@ -26,7 +26,7 @@
                 <h2 class="text-xl font-semibold">Cours des métaux</h2>
 
                 <button id="refresh-btn"
-                    class="bg-amber-500 text-white px-4 py-2 rounded-lg hover:bg-amber-600 cursor-pointer transition">
+                    class="bg-amber-500 text-white px-4 py-2 rounded-lg hover:bg-amber-600 hover:shadow-lg cursor-pointer transition">
                     Actualiser
                 </button>
             </div>
@@ -40,14 +40,14 @@
                 <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition">
                     <h3 class="text-lg font-semibold mb-3">Or</h3>
                     <p id="orInMad" class="text-3xl font-bold text-amber-600">-- MAD</p>
-                    <p class="text-sm text-gray-500 mt-2">Variation : --</p>
+                    <p id="variation" class="text-sm text-gray-500 mt-2">Variation : --</p>
                 </div>
 
                 <!-- Silver Card -->
                 <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition">
                     <h3 class="text-lg font-semibold mb-3">Argent</h3>
                     <p id="silverInMad" class="text-3xl font-bold text-gray-600">-- MAD</p>
-                    <p class="text-sm text-gray-500 mt-2">Variation : --</p>
+                    <p id="S_variation" class="text-sm text-gray-500 mt-2">Variation : --</p>
                 </div>
 
             </div>
@@ -75,7 +75,7 @@
                 <p id="weight-error" class="text-red-500 text-sm"></p>
 
                 <button type="submit"
-                    class="bg-amber-500 text-white px-5 py-2 rounded-lg hover:bg-amber-600 transition cursor-pointer">
+                    class="bg-amber-500 text-white px-5 py-2 rounded-lg hover:bg-amber-600 hover:shadow-lg transition cursor-pointer">
                     Calculer
                 </button>
 
@@ -96,7 +96,7 @@
             </p>
 
             <button id="retry-btn"
-                class="mt-4 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition cursor-pointer">
+                class="mt-4 bg-gray-800 hover:shadow-lg text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition cursor-pointer">
                 Réessayer
             </button>
         </section>
