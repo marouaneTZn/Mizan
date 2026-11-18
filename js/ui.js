@@ -32,7 +32,7 @@ export function renderCards(metalName, priceID, variationId) {
 }
 
 
-export function renderSvariation(defferance, percentage){
+export function renderSvariation(defferance, percentage, currency){
     const Svariation = document.getElementById("SilverVariation")
     let color;
     let  arrow;
@@ -55,11 +55,11 @@ export function renderSvariation(defferance, percentage){
     );
 
     Svariation.classList.add(color)
-    Svariation.textContent = `Variation: ${defferance.toFixed(2)}  MAD  ${arrow} (${percentage.toFixed(2)}) ` 
+    Svariation.textContent = `Variation: ${defferance.toFixed(2)}  ${currency}  ${arrow} (${percentage.toFixed(2)}) ` 
 }
 
 
-export function renderVariation(defferance, percentage) {
+export function renderVariation(defferance, percentage, currency) {
     const goldVariation = document.getElementById("Goldvariation");
     let color;
     let  arrow;
@@ -83,7 +83,7 @@ export function renderVariation(defferance, percentage) {
 
     goldVariation.classList.add(color)
     
-    goldVariation.textContent = `Variation: ${defferance.toFixed(2)}  MAD  ${arrow} (${percentage.toFixed(2)}) `
+    goldVariation.textContent = `Variation: ${defferance.toFixed(2)}  ${currency}  ${arrow} (${percentage.toFixed(2)}) `
 }
 
 

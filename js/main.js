@@ -10,9 +10,17 @@ currencySelect.value = savedCurrency;
 
 currencySelect.addEventListener("change", (event) => {
     const selectedCurrency = event.target.value    
-
     localStorage.setItem("currency", selectedCurrency)
     
+    getMetalPrice(selectedCurrency).then((price) => {
+        if (price === null) {
+            rederError();
+            return;
+        }
+        renderPrice(price, selectedCurrency);
+        renderVariation(price[3], price[4], selectedCurrency);
+        renderSvariation(price[5], price[6], selectedCurrency);
+    });
 })
 
 
@@ -25,18 +33,15 @@ container.replaceChildren();
 
 
 refreshBtn.addEventListener("click", () =>  {
-    getMetalPrice().then((price) => {
+    getMetalPrice(currencySelect.value).then((price) => {
     if (price === null){
         rederError()
         return;
     } 
-    renderPrice(price)
-    lastTimeUpdate(price[2])
-    renderVariation(price[3], price[4])
-    renderSvariation(price[5],price[6])
-    renderSeccus()
-    
-        
+    renderPrice(price, currencySelect.value);
+    renderVariation(price[3], price[4], currencySelect.value);
+    renderSvariation(price[5], price[6], currencySelect.value);
+    renderSeccus() 
     })
 })
 renderLoading()
@@ -52,9 +57,9 @@ getMetalPrice(currencySelect.value).then((price) => {
         renderCards(metal.name, metal.id, metal.variationId);
     });
     renderPrice(price, currencySelect.value);
+    renderVariation(price[3], price[4], currencySelect.value);
+    renderSvariation(price[5], price[6], currencySelect.value);
     lastTimeUpdate(price[2]);
-    renderVariation(price[3], price[4]);
-    renderSvariation(price[5], price[6]);
     renderSeccus();
     
 })
