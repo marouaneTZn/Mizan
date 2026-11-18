@@ -48,6 +48,12 @@ export function renderSvariation(defferance, percentage){
         arrow = "→";
     }
 
+    Svariation.classList.remove(
+        "text-red-500",
+        "text-green-500",
+        "text-gray-500"
+    );
+
     Svariation.classList.add(color)
     Svariation.textContent = `Variation: ${defferance.toFixed(2)}  MAD  ${arrow} (${percentage.toFixed(2)}) ` 
 }
@@ -68,7 +74,12 @@ export function renderVariation(defferance, percentage) {
         color = "text-gray-500";
         arrow = "→";
     }
-
+    
+    goldVariation.classList.remove(
+        "text-red-500",
+        "text-green-500",
+        "text-gray-500"
+    );
 
     goldVariation.classList.add(color)
     

@@ -21,15 +21,23 @@ export async function getMetalPrice() {
 
         const data = await response.json();
         const metals = [
-            {name: "Or", price: data.xau.price},
-            {name: "Argent", price: data.silver_usd_oz}
-        ]
-
-        console.log(metals);
-        
+            {
+                name: "Or",
+                price: data.xau.price,
+                id: "orInMad",
+                variationId: "Goldvariation"
+            },
+            {
+                name: "Argent",
+                price: data.silver_usd_oz,
+                id: "SilverPrice",
+                variationId: "SilverVariation"
+            }
+        ];
 
         const goldPriceMAD = (data.fx_rates.MAD * data.xau.price) / 31.1035;
-        const selverMadPrice = (data.silver_usd_oz * data.fx_rates.MAD) / 31.1035;
+        const selverMadPrice = (data.fx_rates.MAD * data.silver_usd_oz) / 31.1035;
+        
 
 
         
@@ -60,9 +68,8 @@ export async function getMetalPrice() {
             difference,
             goldPercentage,
             S_difference,
-            selverPercentage
-            
-
+            selverPercentage,
+            metals
         ];
 
     } catch (error) {
