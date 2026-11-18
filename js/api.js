@@ -1,5 +1,5 @@
 
-export async function getMetalPrice() {
+export async function getMetalPrice(currency = "MAD") {
     try {
     
         const S_historyResponse = await fetch("https://xaus.com/api/v1/chart?symbol=silver&range=5d&interval=1d&utm_source=chatgpt.com");
@@ -15,11 +15,21 @@ export async function getMetalPrice() {
         
         const response = await fetch("https://xaus.com/api/v1/spot");
 
+
         if (!response.ok) {
             throw new Error(`HTTP Error: ${response.status}`);
         }
 
         const data = await response.json();
+        let exchangeRate;
+        if (currency === "USD"){
+            exchangeRate = 1;
+        }
+        else
+        {
+            exchangeRate = data.fx_rates[currency]
+        }
+
         const metals = [
             {
                 name: "Or",
@@ -35,13 +45,13 @@ export async function getMetalPrice() {
             }
         ];
 
-        const goldPriceMAD = (data.fx_rates.MAD * data.xau.price) / 31.1035;
-        const selverMadPrice = (data.fx_rates.MAD * data.silver_usd_oz) / 31.1035;
+        const goldPriceMAD = (exchangeRate * data.xau.price) / 31.1035;
+        const selverMadPrice = (exchangeRate * data.silver_usd_oz) / 31.1035;
         
 
 
         
-        const S_closeMad = (S_lastDay.c * data.fx_rates.MAD) / 31.1035;
+        const S_closeMad = (S_lastDay.c * exchangeRate) / 31.1035;
         const S_difference = selverMadPrice - S_closeMad;
 
 
@@ -51,7 +61,7 @@ export async function getMetalPrice() {
 
 
         
-        const goldCloseMAD = (lastDay.c * data.fx_rates.MAD) / 31.1035;
+        const goldCloseMAD = (lastDay.c * exchangeRate) / 31.1035;
         const difference = goldPriceMAD - goldCloseMAD;
 
         

@@ -99,13 +99,12 @@ export function renderSeccus(){
 }
 
 
-export function renderPrice(price) {
+export function renderPrice(price, currency) {
     const goldMADprice = document.getElementById("orInMad");
-    goldMADprice.textContent = price[0].toFixed(2) + " MAD/g";
+    goldMADprice.textContent = price[0].toFixed(2) + "  " + currency +"/g";
 
     const silverMADprice = document.getElementById("SilverPrice");
-    silverMADprice.textContent = price[1].toFixed(2) + " MAD/g"
-
+    silverMADprice.textContent = price[1].toFixed(2) + "  " + currency +"/g"
 }
 
 
