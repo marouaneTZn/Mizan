@@ -7,6 +7,7 @@ const Svariation = document.getElementById("S_variation")
 
 export function renderCards(metalName, priceID, variationId) {
     const container = document.getElementById("price-cards");
+    
 
     const card = document.createElement("div");
     card.className = "bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition";

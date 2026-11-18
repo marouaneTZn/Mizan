@@ -20,6 +20,13 @@ export async function getMetalPrice() {
         }
 
         const data = await response.json();
+        const metals = [
+            {name: "Or", price: data.xau.price},
+            {name: "Argent", price: data.silver_usd_oz}
+        ]
+
+        console.log(metals);
+        
 
         const goldPriceMAD = (data.fx_rates.MAD * data.xau.price) / 31.1035;
         const selverMadPrice = (data.silver_usd_oz * data.fx_rates.MAD) / 31.1035;

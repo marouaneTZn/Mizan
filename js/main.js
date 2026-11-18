@@ -1,13 +1,13 @@
 
 import { getMetalPrice } from "./api.js";
 import { renderPrice, lastTimeUpdate, renderLoading, renderSeccus, rederError , renderVariation, renderSvariation, renderCards} from "./ui.js"
-
+const container = document.getElementById("price-cards");
 const refreshBtn = document.getElementById("refresh-btn")
 const metals = [
     {name: "Or", id: "orInMad", variationId: "Goldvariation"},
     {name: "Argent", id: "SilverPrice", variationId: "SilverVariation"}
 ]
-
+container.replaceChildren();
 metals.forEach((metal) => {
     renderCards(metal.name, metal.id, metal.variationId)
 })
