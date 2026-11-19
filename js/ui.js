@@ -5,6 +5,12 @@ const apiMessage = document.getElementById("api-message");
 const goldVariation = document.getElementById("variation");
 const Svariation = document.getElementById("S_variation")
 
+export function renderEstimatedValue(value, currency) {
+    const result = document.getElementById("estimated-result");
+
+    result.textContent = value.toFixed(2) + " " + currency;
+}
+
 export function renderCards(metalName, priceID, variationId) {
     const container = document.getElementById("price-cards");
     
